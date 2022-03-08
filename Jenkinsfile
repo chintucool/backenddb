@@ -21,7 +21,12 @@ pipeline {
 
          post {
             success {
-		jacoco()
+		jacoco(
+                        execPattern: '**/jacoco.exec',
+                        classPattern: '**/classes',
+                        sourcePattern: '**/src/main/java',
+                        inclusionPattern: '**/*.java'
+                )
             }
          }
       }
